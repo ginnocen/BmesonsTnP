@@ -33,7 +33,7 @@ TH2F *plotEff2D(RooDataSet *a, TString b);
 TGraphAsymmErrors *plotEffPt(RooDataSet *a, int aa);
 TGraphAsymmErrors *plotEffEta(RooDataSet *a, int aa);
 
-const int ptbins=7;
+const int ptbins=9;
 const int etabins=1;
 
 
@@ -114,7 +114,7 @@ TGraphAsymmErrors *plotEffPt(RooDataSet *a, int aa){
     RooRealVar *eff = (RooRealVar*)set->find("efficiency");
 
     //const int nbins = xAx->getBinning().numBins();
-    const int nbins = 7;
+    const int nbins = 9;
 
     double tx[nbins], txhi[nbins], txlo[nbins];
     double ty[nbins], tyhi[nbins], tylo[nbins];
