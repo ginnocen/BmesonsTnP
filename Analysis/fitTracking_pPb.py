@@ -8,9 +8,9 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )
 
 process.TnP_Tracking = cms.EDAnalyzer("TagProbeFitTreeAnalyzer", 
     ## Input, output 
-    #InputFileNames = cms.vstring("file:../Inputs/TnPNtuple_pPb_MC_11October_v0.root"), 
+    #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_pPb_MC_17October_v1.root"), 
     #OutputFileName = cms.string("../ResultsFit/outputTrackingMC.root"),
-    InputFileNames = cms.vstring("file:../Inputs/TnPNtuple_pPb_Data_FirstRuns_11October_v0.root"), 
+    InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_pPb_Data_FirstRuns_17October_v2.root"), 
     OutputFileName = cms.string("../ResultsFit/outputTrackingData.root"),
     InputTreeName = cms.string("fitter_tree"),
     InputDirectoryName = cms.string("tpTreeSta"),
@@ -23,19 +23,20 @@ process.TnP_Tracking = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     ),
     ## Flags you want to use to define numerator and possibly denominator
     Categories = cms.PSet(
-	TM = cms.vstring("Tracker muon", "dummy[pass=1,fail=0]"),
-	TrackCutsSta = cms.vstring("Track cuts", "dummy[pass=1,fail=0]"),
+        
+	MuonID = cms.vstring("Tracker muon", "dummy[pass=1,fail=0]"),
+	TrackCuts = cms.vstring("Track cuts", "dummy[pass=1,fail=0]"),
 	Acc_JPsi= cms.vstring("Acc_JPsi", "dummy[pass=1,fail=0]"),	
     ),
     ## What to fit
     Efficiencies = cms.PSet(
         Trk_pt = cms.PSet(
             UnbinnedVariables = cms.vstring("mass"),
-            EfficiencyCategoryAndState = cms.vstring("TM","pass","TrackCutsSta","pass"), ## Numerator definition
+            EfficiencyCategoryAndState = cms.vstring("TrackCuts","pass"), ## Numerator definition
             BinnedVariables = cms.PSet(
                 ## Binning in continuous variables
                 eta = cms.vdouble(-2.4, 2.4),
-                pt = cms.vdouble(1.5,3.,4.5,6.,9.,20.,30),
+                pt = cms.vdouble(1.5,2.5,3.,3.5,4.,4.5,6.,9.,20.,30),
                 ## flags and conditions required at the denominator, 
                 Acc_JPsi = cms.vstring("pass"),
             ),
