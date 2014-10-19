@@ -23,13 +23,13 @@ void CompareMethods(TString id="Trg", TString idpt="Pt", TString data="MC") {
       nameBfinder="EffTrig";
       if(data=="MC"){
         infileBfinder= "InputOtherMethod/Bfinder/foutputMC.root";
-        infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_MC_MuTrgNew2CS_CBGpExp_All_Eff_20140927.root";
+        infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_MC_MuTrgNew2CS_CBGpExp_Eff_for_B_20140923.root";
         namePPcode="fEff_pt_MC";
         graphnameKisoo="Trg_pt_All"; 
       }
       if(data=="Data"){
         infileBfinder= "InputOtherMethod/Bfinder/foutputData.root";
-        infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_RD_MuTrgNew2CS_CBGpExp_1st_Run_Eff_20140927.root";
+        infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_RD_MuTrgNew2CS_CBGpExp_1st_Run_Eff_for_B_20140923.root";
         namePPcode="fEff_pt_Data";
         graphnameKisoo="Trg_pt_All";
       }
@@ -43,13 +43,13 @@ void CompareMethods(TString id="Trg", TString idpt="Pt", TString data="MC") {
       graphnameKisoo="Trk_pt_All"; 
       if(data=="MC"){
         infileBfinder= "InputOtherMethod/Bfinder/foutputMC.root";
-        infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_MC_MuTrk2_2GpP4_p1_Eff_20140927.root";
+        infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_MC_MuTrk2_2GpP2_Eff_for_B_20141013.root";
         namePPcode="fEff_pt_MC";
         nameBfinder="EffTrk";
       }
       if(data=="Data"){
         infileBfinder= "InputOtherMethod/Bfinder/foutputData.root";
-        infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_RD_MuTrk2_CBpPoly_1st_Run_Eff_for_B_20140927.root";
+        infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_RD_MuTrk2_2GpP2_1st_Run_Eff_for_B_20141013.root";
         namePPcode="fEff_pt_Data";
         nameBfinder="EffTrk";
       }
@@ -62,13 +62,13 @@ void CompareMethods(TString id="Trg", TString idpt="Pt", TString data="MC") {
       graphnameKisoo="MuId_pt_All"; 
       if(data=="MC"){
         infileBfinder= "InputOtherMethod/Bfinder/foutputMC.root";
-        infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_MC_MuIdNew2CS_CBpPoly_Eff_20140927.root";
+        infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_MC_MuIdNew2CS_CBpPoly_Eff_for_B_20140923.root";
         namePPcode="fEff_pt_MC";
         nameBfinder="EffMuId";
       }
       if(data=="Data"){
         infileBfinder= "InputOtherMethod/Bfinder/foutputData.root";
-        infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_RD_MuIdNew2CS_CBpPoly_1st_Run_Eff_20140927.root";
+        infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_RD_MuIdNew2CS_CBpPoly_1st_Run_Eff_for_B_20140923.root";
         namePPcode="fEff_pt_Data";
         nameBfinder="EffMuId";
       }

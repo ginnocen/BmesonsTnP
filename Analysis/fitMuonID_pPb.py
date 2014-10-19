@@ -9,7 +9,7 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )
 process.TnP_Muon_ID = cms.EDAnalyzer("TagProbeFitTreeAnalyzer", 
     ## Input, output 
     #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_MC_19October_testtriggerHyunchul_testtag_v1.root"), 
-    #OutputFileName = cms.string("../ResultsFit/outputTriggerMC.root"),
+    #OutputFileName = cms.string("../ResultsFit/outputMuonIDMC.root"),
     InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_Data_19October_testtriggerHyunchul_testtag_v1.root"), 
     OutputFileName = cms.string("../ResultsFit/outputMuonIDData.root"),
     InputTreeName = cms.string("fitter_tree"),
