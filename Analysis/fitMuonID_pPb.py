@@ -8,10 +8,10 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )
 
 process.TnP_Muon_ID = cms.EDAnalyzer("TagProbeFitTreeAnalyzer", 
     ## Input, output 
-    #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_pPb_MC_17October_v1.root"), 
-    #OutputFileName = cms.string("../ResultsFit/outputMuonIDMC.root"),
-    InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_pPb_Data_17October_v2.root"), 
-    OutputFileName = cms.string("../ResultsFit/outputMuonIDData.root"),
+    InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_MC_19October_testtriggerHyunchul_testtag_v1.root"), 
+    OutputFileName = cms.string("../ResultsFit/outputTriggerMC_19October_testtriggerHyunchul_testtag_v1.root"),
+    #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_pPb_Data_17October_v2.root"), 
+    #OutputFileName = cms.string("../ResultsFit/outputMuonIDData.root"),
     InputTreeName = cms.string("fitter_tree"),
     InputDirectoryName = cms.string("tpTree"),
     ## Variables for binning
@@ -23,6 +23,8 @@ process.TnP_Muon_ID = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     ),
     ## Flags you want to use to define numerator and possibly denominator
     Categories = cms.PSet(
+    tag_PAMu3 = cms.vstring("tag_PAMu3", "dummy[pass=1,fail=0]"),
+	tag_PAMu3_standard = cms.vstring("tag_PAMu3_standard", "dummy[pass=1,fail=0]"),
 	TrackCuts = cms.vstring("Track cuts", "dummy[pass=1,fail=0]"),
 	Acc_JPsi= cms.vstring("Acc_JPsi", "dummy[pass=1,fail=0]"),	
 	MuonID= cms.vstring("MuonID", "dummy[pass=1,fail=0]"),
@@ -37,6 +39,7 @@ process.TnP_Muon_ID = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
                 eta = cms.vdouble(-2.4, 2.4),
                 pt = cms.vdouble(1.5,2.5,3.,3.5,4.,4.5,6.,9.,20.,30),
                 ## flags and conditions required at the denominator, 
+                tag_PAMu3_standard = cms.vstring("pass"), 
                 Acc_JPsi = cms.vstring("pass"), 
                 TrackCuts = cms.vstring("pass"),
             ),
