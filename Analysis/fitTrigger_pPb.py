@@ -10,8 +10,8 @@ process.TnP_Trigger = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     ## Input, output 
     InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_MC_19October_testtriggerHyunchul_testtag_v1.root"), 
     OutputFileName = cms.string("../ResultsFit/outputTriggerMC_19October_testtriggerHyunchul_testtag_v1.root"),
-    #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_pPb_Data_17October_v2.root"), 
-    #OutputFileName = cms.string("../ResultsFit/outputTriggerData.root"),
+    #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_Data_19October_testtriggerHyunchul_testtag_v1.root"), 
+    #OutputFileName = cms.string("../ResultsFit/outputTriggerData_19October_testtriggerHyunchul_testtag_v1.root"),
     InputTreeName = cms.string("fitter_tree"),
     InputDirectoryName = cms.string("tpTree"),
     ## Variables for binning
