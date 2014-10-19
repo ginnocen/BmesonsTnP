@@ -10,7 +10,7 @@ process.TnP_Tracking = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     ## Input, output 
     #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_pPb_MC_17October_v1.root"), 
     #OutputFileName = cms.string("../ResultsFit/outputTrackingMC.root"),
-    InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_pPb_Data_FirstRuns_17October_v2.root"), 
+    InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_pPb_Data_17October_v2.root"), 
     OutputFileName = cms.string("../ResultsFit/outputTrackingData.root"),
     InputTreeName = cms.string("fitter_tree"),
     InputDirectoryName = cms.string("tpTreeSta"),
