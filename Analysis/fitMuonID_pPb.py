@@ -11,7 +11,7 @@ process.TnP_Muon_ID = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_MC_19October_testtriggerHyunchul_testtag_v1.root"), 
     #OutputFileName = cms.string("../ResultsFit/outputTriggerMC.root"),
     InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_Data_19October_testtriggerHyunchul_testtag_v1.root"), 
-    OutputFileName = cms.string("../ResultsFit/outputTriggerData.root"),
+    OutputFileName = cms.string("../ResultsFit/outputMuonIDData.root"),
     InputTreeName = cms.string("fitter_tree"),
     InputDirectoryName = cms.string("tpTree"),
     ## Variables for binning
