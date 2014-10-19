@@ -8,10 +8,10 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )
 
 process.TnP_Tracking = cms.EDAnalyzer("TagProbeFitTreeAnalyzer", 
     ## Input, output 
-    InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_MC_19October_testtriggerHyunchul_testtag_v1.root"), 
-    OutputFileName = cms.string("../ResultsFit/outputTriggerMC_19October_testtriggerHyunchul_testtag_v1.root"),
-    #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_Data_19October_testtriggerHyunchul_testtag_v1.root"), 
-    #OutputFileName = cms.string("../ResultsFit/outputTrackingData_19October_testtriggerHyunchul_testtag_v1.root"),
+    #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_MC_19October_testtriggerHyunchul_testtag_v1.root"), 
+    #OutputFileName = cms.string("../ResultsFit/outputTrackingMC.root"),
+    InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_Data_19October_testtriggerHyunchul_testtag_v1.root"), 
+    OutputFileName = cms.string("../ResultsFit/outputTrackingData.root"),
     InputTreeName = cms.string("fitter_tree"),
     InputDirectoryName = cms.string("tpTreeSta"),
     ## Variables for binning
