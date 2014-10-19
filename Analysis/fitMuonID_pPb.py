@@ -10,7 +10,7 @@ process.TnP_Muon_ID = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     ## Input, output 
     #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_MC_19October_testtriggerHyunchul_testtag_v1.root"), 
     #OutputFileName = cms.string("../ResultsFit/outputMuonIDMC.root"),
-    InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_Data_19October_testtriggerHyunchul_testtag_v1.root"), 
+    InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_Data_LastRuns_19October_testtriggerHyunchul_testtag_v1.root"), 
     OutputFileName = cms.string("../ResultsFit/outputMuonIDData.root"),
     InputTreeName = cms.string("fitter_tree"),
     InputDirectoryName = cms.string("tpTree"),
