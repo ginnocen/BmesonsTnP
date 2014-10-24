@@ -33,7 +33,7 @@ TH2F *plotEff2D(RooDataSet *a, TString b);
 TGraphAsymmErrors *plotEffPt(RooDataSet *a, int aa);
 TGraphAsymmErrors *plotEffEta(RooDataSet *a, int aa);
 
-const int ptbins=9;
+const int nbins = 6;
 const int etabins=1;
 
 
@@ -46,46 +46,75 @@ void ConvertIntoRootFiles(TString id="Trg") {
 
   char *infileMC;
   char *infileData;
-  char *rootstring;
+  char *rootstring_etabin0;
+  char *rootstring_etabin1;
+  char *rootstring_etabin2;
   char *outfile;
   
   if(id=="Trg"){
    infileMC= "../ResultsFit/outputTriggerMC.root";
    infileData= "../ResultsFit/outputTriggerData.root";
-   rootstring="tpTree/Trg_pt/fit_eff";
+   rootstring_etabin0="tpTree/Trg_pt_etabin0/fit_eff";
+   rootstring_etabin1="tpTree/Trg_pt_etabin1/fit_eff";
+   rootstring_etabin2="tpTree/Trg_pt_etabin2/fit_eff";
+   rootstring_all="tpTree/Trg_pt_all/fit_eff";
    outfile="Results/foutputTrigger.root";
   }
   
   if(id=="Trk"){
    infileMC= "../ResultsFit/outputTrackingMC.root";
    infileData= "../ResultsFit/outputTrackingData.root";
-   rootstring="tpTreeSta/Trk_pt/fit_eff";
+   rootstring_etabin0="tpTreeSta/Trk_pt_etabin0/fit_eff";
+   rootstring_etabin1="tpTreeSta/Trk_pt_etabin1/fit_eff";
+   rootstring_etabin2="tpTreeSta/Trk_pt_etabin2/fit_eff";
+   rootstring_all="tpTreeSta/Trk_pt_all/fit_eff";
    outfile="Results/foutputTracking.root";
   }
   
   if(id=="MuonID"){
    infileMC= "../ResultsFit/outputMuonIDMC.root";
    infileData= "../ResultsFit/outputMuonIDData.root";
-   rootstring="tpTree/MuID_pt/fit_eff";
+   rootstring_etabin0="tpTree/MuID_pt_etabin0/fit_eff";
+   rootstring_etabin1="tpTree/MuID_pt_etabin1/fit_eff";
+   rootstring_etabin2="tpTree/MuID_pt_etabin2/fit_eff";
+   rootstring_all="tpTree/MuID_pt_all/fit_eff";
    outfile="Results/foutputMuonID.root";
   }
   
   
   TFile *fMC = new TFile(infileMC);
   TFile *fData = new TFile(infileData);
-  RooDataSet *daPtMC = (RooDataSet*)fMC->Get(rootstring);
-  RooDataSet *daPtData = (RooDataSet*)fData->Get(rootstring);
+  RooDataSet *daPtMC_etabin0 = (RooDataSet*)fMC->Get(rootstring_etabin0);
+  RooDataSet *daPtMC_etabin1 = (RooDataSet*)fMC->Get(rootstring_etabin1);
+  RooDataSet *daPtMC_etabin2 = (RooDataSet*)fMC->Get(rootstring_etabin2);
+  RooDataSet *daPtMC_all = (RooDataSet*)fMC->Get(rootstring_all);
+
+  RooDataSet *daPtData_etabin0 = (RooDataSet*)fData->Get(rootstring_etabin0);
+  RooDataSet *daPtData_etabin1 = (RooDataSet*)fData->Get(rootstring_etabin1);
+  RooDataSet *daPtData_etabin2 = (RooDataSet*)fData->Get(rootstring_etabin2);
+  RooDataSet *daPtData_all = (RooDataSet*)fData->Get(rootstring_all);
   
-  TGraphAsymmErrors *fEff_pt_MC = plotEffPt(daPtMC, 1);
-  TGraphAsymmErrors *fEff_pt_Data = plotEffPt(daPtData, 1);
-  TGraphAsymmErrors *fEff_eta_MC= plotEffEta(daPtMC, 1);
-  TGraphAsymmErrors *fEff_eta_Data= plotEffEta(daPtData, 1);
+  TGraphAsymmErrors *fEff_pt_etabin0_MC = plotEffPt(daPtMC_etabin0, 1);
+  TGraphAsymmErrors *fEff_pt_etabin1_MC = plotEffPt(daPtMC_etabin1, 1);
+  TGraphAsymmErrors *fEff_pt_etabin2_MC = plotEffPt(daPtMC_etabin2, 1);
+  TGraphAsymmErrors *fEff_pt_all_MC = plotEffPt(daPtMC_all, 1);
+
+  TGraphAsymmErrors *fEff_pt_etabin0_Data = plotEffPt(daPtData_etabin0, 1);
+  TGraphAsymmErrors *fEff_pt_etabin1_Data = plotEffPt(daPtData_etabin1, 1);
+  TGraphAsymmErrors *fEff_pt_etabin2_Data = plotEffPt(daPtData_etabin2, 1);
+  TGraphAsymmErrors *fEff_pt_all_Data = plotEffPt(daPtData_all, 1);
+  
    
-  fEff_pt_MC->SetName("fEff_pt_MC");
-  fEff_pt_Data->SetName("fEff_pt_Data");
-  fEff_eta_MC->SetName("fEff_eta_MC");
-  fEff_eta_Data->SetName("fEff_eta_Data");
+  fEff_pt_etabin0_MC->SetName("fEff_pt_etabin0_MC");
+  fEff_pt_etabin1_MC->SetName("fEff_pt_etabin1_MC");
+  fEff_pt_etabin2_MC->SetName("fEff_pt_etabin2_MC");
+  fEff_pt_all_MC->SetName("fEff_pt_all_MC");
   
+  
+  fEff_pt_etabin0_Data->SetName("fEff_pt_etabin0_Data");
+  fEff_pt_etabin1_Data->SetName("fEff_pt_etabin1_Data");
+  fEff_pt_etabin2_Data->SetName("fEff_pt_etabin2_Data");
+  fEff_pt_all_Data->SetName("fEff_pt_all_Data");
   
  // for (int i=0;i<ptbins;i++){
  //  for (int j=0;j<etabins;j++){
@@ -97,13 +126,15 @@ void ConvertIntoRootFiles(TString id="Trg") {
     
   TFile*foutput=new TFile(outfile,"recreate");
   foutput->cd();
-  fEff_pt_MC->Write();
-  fEff_pt_Data->Write();
-  fEff_eta_MC->Write();
-  fEff_eta_Data->Write();
+  fEff_pt_etabin0_MC->Write();
+  fEff_pt_etabin1_MC->Write();
+  fEff_pt_etabin2_MC->Write();
+  fEff_pt_all_MC->Write();
   
-  
-  
+  fEff_pt_etabin0_Data->Write();
+  fEff_pt_etabin1_Data->Write();
+  fEff_pt_etabin2_Data->Write();
+  fEff_pt_all_Data->Write();
 
 }
 
@@ -114,7 +145,6 @@ TGraphAsymmErrors *plotEffPt(RooDataSet *a, int aa){
     RooRealVar *eff = (RooRealVar*)set->find("efficiency");
 
     //const int nbins = xAx->getBinning().numBins();
-    const int nbins = 9;
 
     double tx[nbins], txhi[nbins], txlo[nbins];
     double ty[nbins], tyhi[nbins], tylo[nbins];

@@ -22,11 +22,8 @@ void CompareMCData(TString id="Trg") {
   
   TFile *file = new TFile(infile);
 
-  TGraphAsymmErrors *fEff_pt_MC =(TGraphAsymmErrors*)file->Get("fEff_pt_MC");
-  TGraphAsymmErrors *fEff_pt_Data =(TGraphAsymmErrors*)file->Get("fEff_pt_Data");
-  TGraphAsymmErrors *fEff_eta_MC =(TGraphAsymmErrors*)file->Get("fEff_eta_MC");
-  TGraphAsymmErrors *fEff_eta_Data =(TGraphAsymmErrors*)file->Get("fEff_eta_Data");
-
+  TGraphAsymmErrors *fEff_pt_MC =(TGraphAsymmErrors*)file->Get("fEff_pt_all_MC");
+  TGraphAsymmErrors *fEff_pt_Data =(TGraphAsymmErrors*)file->Get("fEff_pt_all_Data");
 
 
   TCanvas *canvas=new TCanvas("canvas","canvas",500,500);   

@@ -24,13 +24,13 @@ void CompareMethods(TString id="Trg", TString idpt="Pt", TString data="MC") {
       if(data=="MC"){
         infileBfinder= "InputOtherMethod/Bfinder/foutputMC.root";
         infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_MC_MuTrgNew2CS_CBGpExp_Eff_for_B_20140923.root";
-        namePPcode="fEff_pt_MC";
+        namePPcode="fEff_pt_all_MC";
         graphnameKisoo="Trg_pt_All"; 
       }
       if(data=="Data"){
         infileBfinder= "InputOtherMethod/Bfinder/foutputData.root";
         infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_RD_MuTrgNew2CS_CBGpExp_1st_Run_Eff_for_B_20140923.root";
-        namePPcode="fEff_pt_Data";
+        namePPcode="fEff_pt_all_Data";
         graphnameKisoo="Trg_pt_All";
       }
     }
@@ -44,13 +44,13 @@ void CompareMethods(TString id="Trg", TString idpt="Pt", TString data="MC") {
       if(data=="MC"){
         infileBfinder= "InputOtherMethod/Bfinder/foutputMC.root";
         infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_MC_MuTrk2_2GpP2_Eff_for_B_20141013.root";
-        namePPcode="fEff_pt_MC";
+        namePPcode="fEff_pt_all_MC";
         nameBfinder="EffTrk";
       }
       if(data=="Data"){
         infileBfinder= "InputOtherMethod/Bfinder/foutputData.root";
         infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_RD_MuTrk2_2GpP2_1st_Run_Eff_for_B_20141013.root";
-        namePPcode="fEff_pt_Data";
+        namePPcode="fEff_pt_all_Data";
         nameBfinder="EffTrk";
       }
     }
@@ -63,13 +63,13 @@ void CompareMethods(TString id="Trg", TString idpt="Pt", TString data="MC") {
       if(data=="MC"){
         infileBfinder= "InputOtherMethod/Bfinder/foutputMC.root";
         infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_MC_MuIdNew2CS_CBpPoly_Eff_for_B_20140923.root";
-        namePPcode="fEff_pt_MC";
+        namePPcode="fEff_pt_all_MC";
         nameBfinder="EffMuId";
       }
       if(data=="Data"){
         infileBfinder= "InputOtherMethod/Bfinder/foutputData.root";
         infileKisoo= "InputOtherMethod/Kisoo/Jpsi_pPb_RD_MuIdNew2CS_CBpPoly_1st_Run_Eff_for_B_20140923.root";
-        namePPcode="fEff_pt_Data";
+        namePPcode="fEff_pt_all_Data";
         nameBfinder="EffMuId";
       }
     }

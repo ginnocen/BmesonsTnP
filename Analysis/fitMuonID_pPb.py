@@ -8,10 +8,10 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )
 
 process.TnP_Muon_ID = cms.EDAnalyzer("TagProbeFitTreeAnalyzer", 
     ## Input, output 
-    InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_MC_19October_testtriggerHyunchul_testtag_v1.root"), 
-    OutputFileName = cms.string("../ResultsFit/outputMuonIDMC.root"),
-    #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_Data_LastRuns_19October_testtriggerHyunchul_testtag_v1.root"), 
-    #OutputFileName = cms.string("../ResultsFit/outputMuonIDData.root"),
+    #InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_MC_19October_testtriggerHyunchul_testtag_v1.root"), 
+    #OutputFileName = cms.string("../ResultsFit/outputMuonIDMC.root"),
+    InputFileNames = cms.vstring("file:../Inputs/tnpJPsi_Data_LastRuns_19October_testtriggerHyunchul_testtag_v1.root"), 
+    OutputFileName = cms.string("../ResultsFit/outputMuonIDData.root"),
     InputTreeName = cms.string("fitter_tree"),
     InputDirectoryName = cms.string("tpTree"),
     ## Variables for binning
@@ -37,7 +37,7 @@ process.TnP_Muon_ID = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
             BinnedVariables = cms.PSet(
                 ## Binning in continuous variables
                 eta = cms.vdouble(-2.4,2.4),
-                pt = cms.vdouble(1.5,3.,4.5,6.,9.,15.,30),
+                pt = cms.vdouble(1.5,3.,4.5,6.,9.,30.),
                 ## flags and conditions required at the denominator, 
                 tag_PAMu3_standard = cms.vstring("pass"), 
                 Acc_JPsi = cms.vstring("pass"), 
@@ -51,7 +51,7 @@ process.TnP_Muon_ID = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
             BinnedVariables = cms.PSet(
                 ## Binning in continuous variables
                 eta = cms.vdouble(-2.4,-0.8),
-                pt = cms.vdouble(1.5,3.,4.5,6.,9.,15.,30),
+                pt = cms.vdouble(1.5,3.,4.5,6.,9.,30.),
                 ## flags and conditions required at the denominator, 
                 tag_PAMu3_standard = cms.vstring("pass"), 
                 Acc_JPsi = cms.vstring("pass"), 
@@ -65,7 +65,7 @@ process.TnP_Muon_ID = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
             BinnedVariables = cms.PSet(
                 ## Binning in continuous variables
                 eta = cms.vdouble(-0.8,0.8),
-                pt = cms.vdouble(1.5,3.,4.5,6.,9.,15.,30),
+                pt = cms.vdouble(1.5,3.,4.5,6.,9.,30.),
                 ## flags and conditions required at the denominator, 
                 tag_PAMu3_standard = cms.vstring("pass"), 
                 Acc_JPsi = cms.vstring("pass"), 
@@ -79,7 +79,7 @@ process.TnP_Muon_ID = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
             BinnedVariables = cms.PSet(
                 ## Binning in continuous variables
                 eta = cms.vdouble(0.8,2.4),
-                pt = cms.vdouble(1.5,3.,4.5,6.,9.,15.,30),
+                pt = cms.vdouble(1.5,3.,4.5,6.,9.,30.),
                 ## flags and conditions required at the denominator, 
                 tag_PAMu3_standard = cms.vstring("pass"), 
                 Acc_JPsi = cms.vstring("pass"), 
