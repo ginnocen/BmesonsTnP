@@ -33,7 +33,7 @@ TH2F *plotEff2D(RooDataSet *a, TString b);
 TGraphAsymmErrors *plotEffPt(RooDataSet *a, int aa);
 TGraphAsymmErrors *plotEffEta(RooDataSet *a, int aa);
 
-const int nbins = 6;
+const int nbins = 5;
 const int etabins=1;
 
 
