@@ -49,6 +49,8 @@ void ConvertIntoRootFiles(TString id="Trg") {
   char *rootstring_etabin0;
   char *rootstring_etabin1;
   char *rootstring_etabin2;
+  char *rootstring_pt_all;
+  char *rootstring_eta_all;
   char *outfile;
   
   if(id=="Trg"){
@@ -57,7 +59,8 @@ void ConvertIntoRootFiles(TString id="Trg") {
    rootstring_etabin0="tpTree/Trg_pt_etabin0/fit_eff";
    rootstring_etabin1="tpTree/Trg_pt_etabin1/fit_eff";
    rootstring_etabin2="tpTree/Trg_pt_etabin2/fit_eff";
-   rootstring_all="tpTree/Trg_pt_all/fit_eff";
+   rootstring_pt_all="tpTree/Trg_pt_all/fit_eff";
+   rootstring_eta_all="tpTree/Trg_eta_all/fit_eff";
    outfile="Results/foutputTrigger.root";
   }
   
@@ -67,7 +70,8 @@ void ConvertIntoRootFiles(TString id="Trg") {
    rootstring_etabin0="tpTreeSta/Trk_pt_etabin0/fit_eff";
    rootstring_etabin1="tpTreeSta/Trk_pt_etabin1/fit_eff";
    rootstring_etabin2="tpTreeSta/Trk_pt_etabin2/fit_eff";
-   rootstring_all="tpTreeSta/Trk_pt_all/fit_eff";
+   rootstring_pt_all="tpTreeSta/Trk_pt_all/fit_eff";
+   rootstring_eta_all="tpTreeSta/Trk_eta_all/fit_eff";
    outfile="Results/foutputTracking.root";
   }
   
@@ -77,7 +81,8 @@ void ConvertIntoRootFiles(TString id="Trg") {
    rootstring_etabin0="tpTree/MuID_pt_etabin0/fit_eff";
    rootstring_etabin1="tpTree/MuID_pt_etabin1/fit_eff";
    rootstring_etabin2="tpTree/MuID_pt_etabin2/fit_eff";
-   rootstring_all="tpTree/MuID_pt_all/fit_eff";
+   rootstring_pt_all="tpTree/MuID_pt_all/fit_eff";
+   rootstring_eta_all="tpTree/MuID_eta_all/fit_eff";
    outfile="Results/foutputMuonID.root";
   }
   
@@ -87,34 +92,43 @@ void ConvertIntoRootFiles(TString id="Trg") {
   RooDataSet *daPtMC_etabin0 = (RooDataSet*)fMC->Get(rootstring_etabin0);
   RooDataSet *daPtMC_etabin1 = (RooDataSet*)fMC->Get(rootstring_etabin1);
   RooDataSet *daPtMC_etabin2 = (RooDataSet*)fMC->Get(rootstring_etabin2);
-  RooDataSet *daPtMC_all = (RooDataSet*)fMC->Get(rootstring_all);
+  RooDataSet *daPtMC_all = (RooDataSet*)fMC->Get(rootstring_pt_all);
+  RooDataSet *daEtaMC_all = (RooDataSet*)fMC->Get(rootstring_eta_all);
 
   RooDataSet *daPtData_etabin0 = (RooDataSet*)fData->Get(rootstring_etabin0);
   RooDataSet *daPtData_etabin1 = (RooDataSet*)fData->Get(rootstring_etabin1);
   RooDataSet *daPtData_etabin2 = (RooDataSet*)fData->Get(rootstring_etabin2);
-  RooDataSet *daPtData_all = (RooDataSet*)fData->Get(rootstring_all);
+  RooDataSet *daPtData_all = (RooDataSet*)fData->Get(rootstring_pt_all);
+  RooDataSet *daEtaData_all = (RooDataSet*)fData->Get(rootstring_eta_all);
+
   
   TGraphAsymmErrors *fEff_pt_etabin0_MC = plotEffPt(daPtMC_etabin0, 1);
   TGraphAsymmErrors *fEff_pt_etabin1_MC = plotEffPt(daPtMC_etabin1, 1);
   TGraphAsymmErrors *fEff_pt_etabin2_MC = plotEffPt(daPtMC_etabin2, 1);
   TGraphAsymmErrors *fEff_pt_all_MC = plotEffPt(daPtMC_all, 1);
+  TGraphAsymmErrors *fEff_eta_all_MC = plotEffEta(daEtaMC_all, 1);
+
 
   TGraphAsymmErrors *fEff_pt_etabin0_Data = plotEffPt(daPtData_etabin0, 1);
   TGraphAsymmErrors *fEff_pt_etabin1_Data = plotEffPt(daPtData_etabin1, 1);
   TGraphAsymmErrors *fEff_pt_etabin2_Data = plotEffPt(daPtData_etabin2, 1);
   TGraphAsymmErrors *fEff_pt_all_Data = plotEffPt(daPtData_all, 1);
-  
+  TGraphAsymmErrors *fEff_eta_all_Data = plotEffEta(daEtaData_all, 1);
+
    
   fEff_pt_etabin0_MC->SetName("fEff_pt_etabin0_MC");
   fEff_pt_etabin1_MC->SetName("fEff_pt_etabin1_MC");
   fEff_pt_etabin2_MC->SetName("fEff_pt_etabin2_MC");
   fEff_pt_all_MC->SetName("fEff_pt_all_MC");
+  fEff_eta_all_MC->SetName("fEff_eta_all_MC");
   
   
   fEff_pt_etabin0_Data->SetName("fEff_pt_etabin0_Data");
   fEff_pt_etabin1_Data->SetName("fEff_pt_etabin1_Data");
   fEff_pt_etabin2_Data->SetName("fEff_pt_etabin2_Data");
   fEff_pt_all_Data->SetName("fEff_pt_all_Data");
+  fEff_eta_all_Data->SetName("fEff_eta_all_Data");
+
   
  // for (int i=0;i<ptbins;i++){
  //  for (int j=0;j<etabins;j++){
@@ -130,11 +144,14 @@ void ConvertIntoRootFiles(TString id="Trg") {
   fEff_pt_etabin1_MC->Write();
   fEff_pt_etabin2_MC->Write();
   fEff_pt_all_MC->Write();
+  fEff_eta_all_MC->Write();
+
   
   fEff_pt_etabin0_Data->Write();
   fEff_pt_etabin1_Data->Write();
   fEff_pt_etabin2_Data->Write();
   fEff_pt_all_Data->Write();
+  fEff_eta_all_Data->Write();
 
 }
 
@@ -199,7 +216,7 @@ TGraphAsymmErrors *plotEffEta(RooDataSet *a, int aa){
     RooRealVar *eff = (RooRealVar*)set->find("efficiency");
 
     //const int nbins = xAx->getBinning().numBins();
-    const int nbins = 1;
+    const int nbins = 3;
 
     double tx[nbins], txhi[nbins], txlo[nbins];
     double ty[nbins], tyhi[nbins], tylo[nbins];
