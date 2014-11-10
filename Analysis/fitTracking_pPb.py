@@ -44,6 +44,20 @@ process.TnP_Tracking = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
             ),
             BinToPDFmap = cms.vstring("twoGaussPlusPoly1"), ## PDF to use, as defined below
         ),
+        Trk_eta_all = cms.PSet(
+            UnbinnedVariables = cms.vstring("mass"),
+            EfficiencyCategoryAndState = cms.vstring("TrackCuts","pass"), ## Numerator definition
+            BinnedVariables = cms.PSet(
+                ## Binning in continuous variables
+                eta = cms.vdouble(-2.4,-0.8,0.8,2.4),
+                pt = cms.vdouble(1.5,30.),
+                ## flags and conditions required at the denominator, 
+                tag_PAMu3_standard = cms.vstring("pass"), 
+                Acc_JPsi = cms.vstring("pass"),
+            ),
+            BinToPDFmap = cms.vstring("twoGaussPlusPoly1"), ## PDF to use, as defined below
+        ),
+
         Trk_pt_etabin0 = cms.PSet(
             UnbinnedVariables = cms.vstring("mass"),
             EfficiencyCategoryAndState = cms.vstring("TrackCuts","pass"), ## Numerator definition
