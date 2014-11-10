@@ -128,10 +128,10 @@ void CompareMethods(TString id="Trg", TString idpt="Pt", TString data="MC") {
   fEff_Kisoo->SetLineWidth(2);
   fEff_Kisoo->Draw("epsame");
 
-  hEff_Bfinder->SetLineColor(4);
-  hEff_Bfinder->SetMarkerColor(4);
-  hEff_Bfinder->SetLineWidth(2);
-  hEff_Bfinder->Draw("same");
+  //hEff_Bfinder->SetLineColor(4);
+  //hEff_Bfinder->SetMarkerColor(4);
+  //hEff_Bfinder->SetLineWidth(2);
+  //hEff_Bfinder->Draw("same");
   
   TLegend *legend=new TLegend(0.3770161,0.2881356,0.8245968,0.4194915,"");
   legend->SetBorderSize(0);
@@ -150,10 +150,10 @@ void CompareMethods(TString id="Trg", TString idpt="Pt", TString data="MC") {
   ent_Kisoo->SetLineColor(2);
   ent_Kisoo->SetMarkerColor(2);
   
-  TLegendEntry *ent_Bfinder=legend->AddEntry(hEff_Bfinder,"Bfinder","pf");
-  ent_Bfinder->SetTextFont(42);
-  ent_Bfinder->SetLineColor(4);
-  ent_Bfinder->SetMarkerColor(4);
+  //TLegendEntry *ent_Bfinder=legend->AddEntry(hEff_Bfinder,"Bfinder","pf");
+  //ent_Bfinder->SetTextFont(42);
+  //ent_Bfinder->SetLineColor(4);
+  //ent_Bfinder->SetMarkerColor(4);
 
   legend->Draw();
   canvas->SaveAs(Form("Plots/canvasComparison_%s_%s_%s.pdf",id.Data(),idpt.Data(),data.Data()));
